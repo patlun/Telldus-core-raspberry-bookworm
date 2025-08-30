@@ -1,4 +1,4 @@
-# installing telldus-core in Raspberry OS Bookworm
+# Installing telldus-core in Raspberry OS Bookworm
 
 ## Background
 
