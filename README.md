@@ -2,22 +2,23 @@
 
 ## Background
 
-My notes about how installing [telldus-core](https://github.com/rubund/telldus-core) in Raspberry OS Bookworm as my old raspbian host died and I needed to reinstall, including telldus-core. Don't forget the backups.
+My notes about how to installing [telldus-core](https://github.com/rubund/telldus-core) in Raspberry OS Bookworm as my old raspbian host died and I needed to reinstall, including telldus-core. Don't forget your backups people!
 
-I used an version of telldus-core I had on disk (telldus-core 2.1.3 beta) as that was the version I used last time and I could not find any later. 
+I used an version of telldus-core I had on disk (telldus-core 2.1.3 beta) as that was the version I used last time and I could not find any newer. 
 
 I needed to do some small changes in the code to make it work 2025.
 
 ## For the reader.
 - This is my notes from setting up the Tellstick duo for my use case, that is to read sensor data.
 - I have tried to add relevant commands below, but I can have missed something, I expect the reader to have an intermediate understanding Linux.
+- I will not tell you how to install and configure your Raspberry Pi.
 - This worked for me
 - There will be warnings while compiling telldus-core. I have not looked into them
 - I hope you will be able to grok this if needed.
 
 ## Prerequisites
 ### Hardware and operation system
-- Raspberry Pi 3B+, makes it possible to boot from USB. You can get Raspberry Pi 3B (without plus) to [boot from USB to](https://www.instructables.com/Booting-Raspberry-Pi-3-B-With-a-USB-Drive/)
+- Raspberry Pi 3B+, makes it possible to boot from USB. You can get Raspberry Pi 3B (without plus) to [boot from USB too](https://www.instructables.com/Booting-Raspberry-Pi-3-B-With-a-USB-Drive/)
 - Sandisk Ultra Fit USB stick. I use this because of the small physical format, other brands have similar ones 
 -  Tellstick duo
 - Raspberry OS Bookworm Lite installed and up to date. I used the image from 2025-05-13
@@ -85,7 +86,7 @@ cd telldus-core-2.1.3-beta1/
 
 #### Needed changes.
 
-**CMakeList.txt**
+##### CMakeList.txt
 I removed the doxygen part, starting at line 59.
 Then I added the 2 lines setting some flags, I am not sure the `-no-pointer-arith` is needed but it seems to work with it there
 This is the file I was using after edits
@@ -174,7 +175,7 @@ set(CMAKE_CXX_FLAGS "-pthread -no-pointer-arith")
 
 ```
 
-**common/common.h**
+##### common/common.h
 I get compilations errors that indicated that the headerfile pthread.h was missing so I added that at the end of headerfiles 
 
 ```
@@ -208,11 +209,11 @@ I get compilations errors that indicated that the headerfile pthread.h was missi
 
 ```
 
-**service/SettingsConfuse.cpp**
+##### service/SettingsConfuse.cpp
 
 **Scary, note that I am not a C++-developer and my C is very rusty. Here is dragons!**
 
-I get some errors because of better checks in the modern compilator. So I changed the code in for places.
+I get some errors because of better checks in the modern compilator. So I needed to change the code in four places.
 
 The error I get was
 ```
@@ -399,7 +400,7 @@ controller {
 }
 ```
 
-I created the smallest possible file, I have no devices configurerd as I only uses my tellstick duo for access to some old sensors. There are examples of how to add devices in the sources below.
+I created the smallest possible file, I have no devices configurerd as I only uses my Tellstick duo for access to some old sensors. There are examples of how to add devices in the sources below.
 
 Find the serial by running usb-devices or other command like that.
 ```
