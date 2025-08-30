@@ -470,7 +470,7 @@ oregon                  1A2D                    163     16.3°   79%            
 
 # Fork?
 
-ATM moment I have not forked telldus-core as I am not a C++ developer so I can't provide any support.
+At the moment I have not forked telldus-core as I am not a C++ developer so I can't provide any support.
 
 # License
-This is licensed in the same way as telldus-core
+This is licensed in the same way as telldus-core using LGPL 2.1.
