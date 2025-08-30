@@ -465,6 +465,7 @@ oregon                  1A2D                    163     16.3°   79%            
 - [Telldus documentation of tellstick.conf (adding devices)](https://developer.telldus.com/wiki/TellStick_conf)
 - [Tellstick on Linux - experience sharing(Telldus Forum)](https://forum.telldus.com/viewtopic.php?t=6464)
 - [Tellstick Duo resources (Telldus Forum)](https://forum.telldus.com/viewtopic.php?t=683)
+- [TellStick installation - Linux (Telldus developer wiki)](https://developer.telldus.com/wiki/TellStickInstallationSource)
 - [telldus-core (github)](https://github.com/rubund/telldus-core)
 - [libconfuse (github)](https://github.com/libconfuse/libconfuse)
 - My own notes from last time I did this
